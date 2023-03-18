@@ -42,6 +42,54 @@ class Car2 {
 }
 
 // Interfaces
+interface Vehicle {
+    make: string
+}
+
+class Car3 implements Vehicle {
+    make: string;
+}
+
+// An interface may contain optional members as well.
+interface Exception {
+    message: string
+    id?: number // Optional member
+}
+
+// define the contract for our future class with a method
+interface ErrorHandle {
+    exceptions: Exception[]
+    logException(message: string, id?: number): void
+}
+
+/*
+We can also define interfaces for standalone object types, which is quite useful when we need to
+define templated constructors or method signatures
+*/
+interface ExceptionHandlerSettings {
+    logAllExceptions: boolean
+}
+
+// Let’s bring them all together by creating a custom error handler class
+class CustomErrorHandler implements ErrorHandle {
+    exceptions: Exception[] = [];
+    logAllExceptions: boolean
+
+    constructor(settings: ExceptionHandlerSettings) {
+        this.logAllExceptions = settings.logAllExceptions
+    }
+
+    logException(message: string, id?: number): void {
+        this.exceptions.push({ message, id })
+    }
+}
+
+
+
+
+
+
+
 
 
 

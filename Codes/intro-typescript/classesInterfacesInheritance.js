@@ -43,4 +43,19 @@ var Car2 = /** @class */ (function () {
     }
     return Car2;
 }());
-// Interfaces
+var Car3 = /** @class */ (function () {
+    function Car3() {
+    }
+    return Car3;
+}());
+// Let’s bring them all together by creating a custom error handler class
+var CustomErrorHandler = /** @class */ (function () {
+    function CustomErrorHandler(settings) {
+        this.exceptions = [];
+        this.logAllExceptions = settings.logAllExceptions;
+    }
+    CustomErrorHandler.prototype.logException = function (message, id) {
+        this.exceptions.push({ message: message, id: id });
+    };
+    return CustomErrorHandler;
+}());
