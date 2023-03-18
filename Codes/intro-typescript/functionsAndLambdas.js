@@ -1,4 +1,4 @@
-// Annotating types in functions
+// ========= Annotating types in functions =========
 function sayHello(name) {
     return 'Hello, ' + name;
 }
@@ -17,7 +17,7 @@ We might assume that the inferred type of a variable that points to a function t
 a string is a string. Well, it’s not. A variable that points to an anonymous function ought to be
 annotated with a function type
  */
-// Function parameters in TypeScript
+// ========= Function parameters in TypeScript =========
 // Optional Parameters
 /*
 Parameters are a core part of the type checking applied by the TypeScript compiler. Parameters
@@ -37,7 +37,7 @@ signature. Consider the following function:
  */
 // function add(optional?: number, mandatory: string) {}
 // Remember, optional arguments are great, but place them last.
-// Default parameters
+// ========= Default parameters =========
 function greetMe2(name, greeting) {
     if (greeting === void 0) { greeting = 'Hello'; }
     return "".concat(greeting, " ").concat(name);
@@ -48,7 +48,7 @@ console.log(greetMe2('George', 'Glad to meet you Mrs.'));
 Like optional parameters, default parameters must be put right after the required parameters in
 the function signature.
  */
-// Rest parameters
+// ========= Rest parameters =========
 /*
 One of the significant advantages of JavaScript flexibility when defining functions is the ability
 to accept an unlimited non-declared array of parameters. TypeScript can achieve the same behavior
@@ -83,7 +83,7 @@ In the preceding example, we create three different function signatures, each of
 different type annotations. We could even define different return types by annotating the wrapping
 function with type any.
  */
-// Arrow functions
+// ========= Arrow functions =========
 /*
 The first thing we notice is its minimalistic syntax, where, most of the time,
 we see arrow functions as single-line, anonymous expressions:

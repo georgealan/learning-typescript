@@ -85,12 +85,17 @@ a width property. In that case, we would need to check values for both square an
  */
 
 // Nullish coalescing
-
-
-
-
-
-
-
-
-
+/*
+The nullish coalescing feature in TypeScript looks similar to the optional chaining we learned
+about in the previous section. However, it is more related to providing a default value when a
+variable is not set. Consider the following example that assigns a value to the mySquare variable
+only if the square object exists:
+ */
+const square3 = null
+const mySquare = square3 ? square3 : new Square()
+/*
+The previous statement is called a ternary operator and operates like a conditional statement. If
+the square object is undefined or null, the mySquare variable will take the default value of a new
+square object. We can rewrite the previous expression using nullish coalescing:
+ */
+const mysquare2 = square3 ?? new Square() // This is Nullish coalescing

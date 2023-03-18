@@ -33,7 +33,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-// Spread parameter
+// ========= Spread parameter =========
 /*
 A spread parameter uses the same ellipsis syntax as the rest parameter but is used inside the body
 of a function. Let’s illustrate this with an example:
@@ -49,7 +49,7 @@ var baseUrl = '';
 var path_to_resource = '';
 var parameter = '';
 var url = "".concat(baseUrl, "/").concat(path_to_resource, "?param=").concat(parameter, "&param2={parameter2}");
-// Generics/*
+// ========= Generics =========
 /*
 Generics are expression indicating a general code behavior that we can employ, regardless of the
 data type.
@@ -108,3 +108,31 @@ function allAreas() {
 }
 var result = allAreas(new Square(), new Circle(), new Circle());
 console.log(result);
+// ========= Optional chaining =========
+var squareOne = new Square();
+var area = squareOne === null || squareOne === void 0 ? void 0 : squareOne.area();
+/*
+The character ? after the square object ensures that the area method will be accessed only if the
+object has a value. The case where optional chaining shines is in more complicated scenarios
+with much more values to check, such as the following
+ */
+// const width = squareOne?.area()?.width
+/*
+In the preceding scenario, we assume that the area property is an optional object that contains
+a width property. In that case, we would need to check values for both square and area.
+ */
+// Nullish coalescing
+/*
+The nullish coalescing feature in TypeScript looks similar to the optional chaining we learned
+about in the previous section. However, it is more related to providing a default value when a
+variable is not set. Consider the following example that assigns a value to the mySquare variable
+only if the square object exists:
+ */
+var square3 = null;
+var mySquare = square3 ? square3 : new Square();
+/*
+The previous statement is called a ternary operator and operates like a conditional statement. If
+the square object is undefined or null, the mySquare variable will take the default value of a new
+square object. We can rewrite the previous expression using nullish coalescing:
+ */
+var mysquare2 = square3 !== null && square3 !== void 0 ? square3 : new Square(); // This is Nullish coalescing
